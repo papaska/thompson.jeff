@@ -46,12 +46,13 @@ public class Step_Definitions {
     }
 
     @Then("^I validate both items are in the cart$")
-    public void iValidateBothItemsAreInTheCart() {
+    public void iValidateBothItemsAreInTheCart() throws InterruptedException {
         //Click the shopping cart icon in the upper right of the screen
-        Hooks.driver.findElement(By.xpath("//*[@id='shopping_cart_container']/a/svg/path")).click();
+        Hooks.driver.findElement(By.xpath("//*[@id='shopping_cart_container']")).click();
         //
         assertTrue(Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='item_0_title_link']/div"))).isDisplayed());
         assertTrue(Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='item_0_title_link']/div"))).isDisplayed());
+    
 
     }
 }

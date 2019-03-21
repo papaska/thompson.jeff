@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/thompson.jeff.test.thompson.jeff.iml" filepath="$PROJECT_DIR$/.idea/modules/thompson.jeff.test.thompson.jeff.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/thompson.jeff.test.thompson.jeff.main.iml" filepath="$PROJECT_DIR$/.idea/modules/thompson.jeff.test.thompson.jeff.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/thompson.jeff.test.thompson.jeff.test.iml" filepath="$PROJECT_DIR$/.idea/modules/thompson.jeff.test.thompson.jeff.test.iml" />
+    </modules>
+  </component>
+</project>
