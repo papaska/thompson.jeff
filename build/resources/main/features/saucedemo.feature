@@ -10,8 +10,8 @@ Feature: Sauce Labs shopping demo
 
     Given I navigate to "https://www.saucedemo.com/"
     Then log in as user "standard_user" with password "secret_sauce"
-    Then I add “Sauce Labs Onesie” to the cart
-    Then I add “Sauce Labs Bike Light” to the cart
+    Then I add Sauce Labs Onesie to the cart
+    Then I add Sauce Labs Bike Light to the cart
     Then I click the shopping cart
     And I validate both items are in the cart
     Then I complete the checkout process

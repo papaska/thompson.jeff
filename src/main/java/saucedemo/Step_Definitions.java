@@ -20,11 +20,11 @@ public class Step_Definitions {
     @Given("^I navigate to \"([^\"]*)\"$")
     public void iNavigateTo(String website) {
         //Navigate to the website provided. It's best if you use the fully qualified address (example https://www.saucedemo.com/)
-       Hooks.driver.get(website);
+        Hooks.driver.get(website);
     }
 
     @Then("^log in as user \"([^\"]*)\" with password \"([^\"]*)\"$")
-    public void logInAsUserWithPassword(String username, String password){
+    public void logInAsUserWithPassword(String username, String password) {
         //type in the username
         Hooks.driver.findElement(By.xpath("//*[@id='user-name']")).sendKeys(username);
         //type in the password
@@ -33,19 +33,19 @@ public class Step_Definitions {
         Hooks.driver.findElement(By.xpath("//*[@id='login_button_container']/div/form/input[contains(@class,'btn_action')]")).click();
     }
 
-    @Then("^I add “Sauce Labs Bike Light” to the cart$")
+
+    @Then("I add Sauce Labs Onesie to the cart")
+    public void iAddSauceLabsOnesieToTheCart() {
+        //wait for the onesie add to cart button to be active then click it
+        WebElement item = Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='item_2_title_link']/parent::div/following-sibling::div/button")));
+        item.click();
+    }
+
+    @Then("I add Sauce Labs Bike Light to the cart")
     public void iAddSauceLabsBikeLightToTheCart() {
         //wait for the bike light add to cart button to be active then click it
         WebElement bikeLight = Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='item_0_title_link']/parent::div/following-sibling::div/button")));
         bikeLight.click();
-    }
-
-
-    @Then("^I add “Sauce Labs Onesie” to the cart$")
-    public void iAddSauceLabsOnesieToTheCart() {
-        //wait for the onesie add to cart button to be active then click it
-        WebElement onesie = Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='item_2_title_link']/parent::div/following-sibling::div/button")));
-        onesie.click();
     }
 
     @Then("^I validate both items are in the cart$")
@@ -64,6 +64,7 @@ public class Step_Definitions {
         WebElement cart = Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='shopping_cart_container']")));
         cart.click();
     }
+
     @Then("I complete the checkout process")
     public void iCompleteTheCheckoutProcess() {
         //Click the checkout button in the bottom right
@@ -94,14 +95,13 @@ public class Step_Definitions {
         //TODO parametrize the xpaths here to remove the hard codeded expected values
         //Validate Shipping method
         System.out.println("wait here");
-        assertTrue(Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='checkout_summary_container']/div/div[contains(@class,'summary_info')]/div[text()='"+ shippingMethod +"']"))).isDisplayed());
+        assertTrue(Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='checkout_summary_container']/div/div[contains(@class,'summary_info')]/div[text()='" + shippingMethod + "']"))).isDisplayed());
         //Validate Item Total (Number ONLY no dollar sign)
-        assertTrue(Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='checkout_summary_container']/div/div[contains(@class,'summary_info')]/div[text()='"+ itemTotal +"']"))).isDisplayed());
+        assertTrue(Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='checkout_summary_container']/div/div[contains(@class,'summary_info')]/div[text()='" + itemTotal + "']"))).isDisplayed());
         //Validate Tax(Number ONLY no dollar sign)
         assertTrue(Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='checkout_summary_container']/div/div[contains(@class,'summary_info')]/div[text()='" + tax + "']"))).isDisplayed());
         //Validate Total(Number ONLY no dollar sign)
-        assertTrue(Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='checkout_summary_container']/div/div[contains(@class,'summary_info')]/div[text()='"+ total +"']"))).isDisplayed());
-
+        assertTrue(Hooks.explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='checkout_summary_container']/div/div[contains(@class,'summary_info')]/div[text()='" + total + "']"))).isDisplayed());
 
 
     }
@@ -116,6 +116,9 @@ public class Step_Definitions {
     @And("I validate I am on the URL {string}")
     public void iValidateIAmOnTheURL(String urlToValidate) {
         String currentUrl = Hooks.driver.getCurrentUrl();
-        Assert.assertEquals(currentUrl, urlToValidate );
+        Assert.assertEquals(currentUrl, urlToValidate);
     }
+
+
 }
+

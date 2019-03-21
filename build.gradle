@@ -42,5 +42,5 @@ cucumber {
     glue = 'classpath:saucedemo'
 
     featurePath = 'src/main/resources/features'
-
+    main = 'cucumber.api.cli.Main'
 }
