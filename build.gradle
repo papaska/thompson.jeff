@@ -1,5 +1,4 @@
 plugins {
-    id 'eclipse'
     id 'java'
     id 'application'
     id "se.thinkcode.cucumber-runner" version "0.0.7"
@@ -41,9 +40,7 @@ dependencies {
 }
 cucumber {
     glue = 'classpath:saucedemo'
-    plugin = ['pretty']
-
 
     featurePath = 'src/main/resources/features'
-    main = 'cucumber.api.cli.Main'
+
 }
